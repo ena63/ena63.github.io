@@ -5,10 +5,6 @@ Il a été adapté pour fonctionner avec les modules Adafruit Bluefruit LE:
 les identifiants UUID des services et des caractéristiques sont différents
 
 
-[![NpmVersion](https://img.shields.io/npm/v/web-bluetooth-terminal.svg)](https://www.npmjs.com/package/web-bluetooth-terminal)
-[![dependencies Status](https://david-dm.org/loginov-rocks/Web-Bluetooth-Terminal/status.svg)](https://david-dm.org/loginov-rocks/Web-Bluetooth-Terminal)
-[![devDependencies Status](https://david-dm.org/loginov-rocks/Web-Bluetooth-Terminal/dev-status.svg)](https://david-dm.org/loginov-rocks/Web-Bluetooth-Terminal?type=dev)
-
 ![Favicon](https://raw.githubusercontent.com/loginov-rocks/Web-Bluetooth-Terminal/master/icons/favicon-16x16.png)
 [https://loginov-rocks.github.io/Web-Bluetooth-Terminal](https://loginov-rocks.github.io/Web-Bluetooth-Terminal/) — try
 it out, see how it works on [YouTube](https://www.youtube.com/watch?v=BNXN_931W_M), read tutorial on
@@ -19,38 +15,6 @@ Web Bluetooth Terminal is a website that can **connect** with the remote devices
 (also called Bluetooth Smart) and **exchange data bidirectionally**. It can be installed on your homescreen as an
 application and work offline.
 
-**Killer feature:** the application establishes **serial communication** over BLE that is not provided by the
-specification, but needed if you want to make your own BLE IoT devices using affordable bluetooth modules.
-
-![Teaser](https://raw.githubusercontent.com/loginov-rocks/Web-Bluetooth-Terminal/master/misc/Teaser.png)
-
-The application utilises BLE service (`0xFFE0`) and characteristic (`0xFFE1`) available in low cost BLE modules based
-for example on CC2541 chip, such as HM-10, JDY-08, AT-09, CC41-A and other. Also, it bypasses 20 bytes limit specific
-for GATT characteristics by keeping incoming messages in a buffer and waiting for the end of line characters.
-
-Check [Bluetooth Low Energy (Smart) device](#bluetooth-low-energy-smart-device) and
-[How to use this app as a base for my own project?](#how-to-use-this-app-as-a-base-for-my-own-project)
-sections for a quick start and to find out how to make your own project. Also, I've made
-[MeArm Controller](https://github.com/loginov-rocks/MeArm-Controller) as a showcase project.
-
-## Features
-
-**Accessible via browser** — just go to the [website](https://loginov-rocks.github.io/Web-Bluetooth-Terminal/) and
-you'll get the full featured application, it is not needed to install anything.
-
-**Cross-platform** — as long as the app is accessible via browser, you can use it with the desktop or with the smart
-phone [browser](#browser).
-
-**Installable** — if you don't want to remember the website address, you can add it to the homescreen.
-
-**Works offline** after installation on your homescreen, since it is a Progressive Web Application.
-
-And... it have **auto scrolling!** Enabled by default, but you can scroll the terminal to the top on more than a half of
-the terminal window height to disable it. Scroll to the bottom to enable it again. Rocket science!
-
-## Requirements
-
-### Browser
 
 One of browsers which supports Web Bluetooth API by default
 ([Chrome Platform Status](https://www.chromestatus.com/feature/5264933985976320),
@@ -65,21 +29,6 @@ All this browsers support other necessary features, such as [ES6 classes](https:
 capabilities ([Web App Manifest](https://caniuse.com/#feat=web-app-manifest) and
 [Service Workers](https://caniuse.com/#feat=serviceworkers)), so I don't pay attention to it here.
 
-### Bluetooth Low Energy (Smart) device
-
-Different BLE devices implement their own services and characteristics to communicate with, but you can build your own
-simple device: you just need a BLE module (e.g. HM-10, JDY-08, AT-09, CC41-A) and an Arduino Uno. Wire it and upload the
-[bridge sketch](https://raw.githubusercontent.com/loginov-rocks/Web-Bluetooth-Terminal/master/misc/Arduino-Bridge/Arduino-Bridge.ino).
-
-Pay attention to what voltage level your BLE module consumes, since it can vary from device to device! Read
-specifications, you may need to connect your BLE module to the `3.3V` pin and use voltage level shifter between `TX` and
-`RX` pins.
-
-![Arduino Uno to BLE module wiring scheme](https://raw.githubusercontent.com/loginov-rocks/Web-Bluetooth-Terminal/master/misc/Arduino-Bridge/Scheme.png)
-
-Open Serial Monitor in Arduino IDE, switch baudrate to `9600` and line endings to `Both NL & CR`. Next, launch the
-[Web Bluetooth Terminal](https://loginov-rocks.github.io/Web-Bluetooth-Terminal/) and connect to your module. Now you're
-able to make a small talk between the Terminal and the Serial Monitor!
 
 #### BLE module configuration
 
