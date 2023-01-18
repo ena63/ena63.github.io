@@ -49,12 +49,6 @@ I use with CC41-A module:
 
 Commands can be case insensitive and may need to be terminated with `CR` (`\r`) and `LF` (`\n`).
 
-
-
-## Contribution
-
-Please use the [dev](https://github.com/loginov-rocks/Web-Bluetooth-Terminal/tree/dev) branch and feel free to contribute!
-
 ## Reference
 
 1. [Web Bluetooth Specification](https://webbluetoothcg.github.io/web-bluetooth/)
