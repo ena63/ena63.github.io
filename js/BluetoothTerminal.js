@@ -173,6 +173,12 @@ class BluetoothTerminal {
     // Convert data to the string using global object.
     data = String(data || '');
 
+	//S'agit-il d'une commande Macro (commence par '@') ?
+	if 		(data.substring(0,2) === "@1") 	{data = "!B11:";}
+	else if (data.substring(0,2) === "@2") 	{data = "!B21:";}
+	else if (data.substring(0,2) === "@3") 	{data = "!B31:";}
+	else if (data.substring(0,2) === "@4") 	{data = "!B41:";}
+
     // Return rejected promise immediately if data is empty.
     if (!data) {
       return Promise.reject(new Error('Data must be not empty'));
