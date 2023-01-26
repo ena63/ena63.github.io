@@ -69,8 +69,8 @@ disconnectButton.addEventListener('click', () => {
 sendForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  send(inputField.value);
-
+  //send(inputField.value);
+  send("!B51:");
   inputField.value = '';
   inputField.focus();
 });
