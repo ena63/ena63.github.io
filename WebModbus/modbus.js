@@ -6,6 +6,14 @@ var port = null;
 
 window.addEventListener("load", function() {
     disableControls();
+
+    if (!('serial' in navigator)) {
+      console.log("Web Serial API is not supported by your browser");
+      var txt = document.getElementById("textbox");
+      textbox.value = "web serial not supported";
+    }
+
+
   });
 
 
@@ -113,7 +121,13 @@ async function readModbusRegister() {
     //Décode la trame de réponse et affiche le résultat
     if(RXBuf.length >= 4) {
         var textbox = document.getElementById("textbox");
-        textbox.value = RXBuf[3]*256 + RXBuf[4];
+        if(RXBuf[1] & 0x80){
+          textbox.value = "Modbus Error";
+        }
+        else{
+          textbox.value = RXBuf[3]*256 + RXBuf[4];
+        }
+        
     }
 
   }
@@ -139,6 +153,12 @@ async function readModbusRegister() {
       }
       else if (document.getElementById("holding-register").checked) {
         TXBuf[1] = 0x06;
+      }
+      else{
+        var textbox = document.getElementById("textbox");
+        textbox.value = " read only";
+        writer.releaseLock();
+        return;
       }
 
     //Register Address (sur deux octets)
@@ -193,19 +213,19 @@ async function readModbusRegister() {
   }
 
 
-  function calculateCRC(message,len) {
-    var crc = 0xFFFF;
-    for (var i = 0; i < len; i++) {
-        crc ^= message[i];
-        for (var j = 0; j < 8; j++) {
-            if (crc & 0x0001) {
-                crc = (crc >> 1) ^ 0xA001;
-            } else {
-                crc = crc >> 1;
-            }
-        }
+function calculateCRC(message, len) {
+  var crc = 0xFFFF;
+  for (var i = 0; i < len; i++) {
+    crc ^= message[i];
+    for (var j = 0; j < 8; j++) {
+      if (crc & 0x0001) {
+        crc = (crc >> 1) ^ 0xA001;
+      } else {
+        crc = crc >> 1;
+      }
     }
-    return [crc & 0xFF, crc >> 8];
+  }
+  return [crc & 0xFF, crc >> 8];
 }
 
 
@@ -223,4 +243,9 @@ function enableControls() {
     for (let i = 0; i < controls.length; i++) {
         controls[i].disabled = false;
     }
+}
+
+function modif() {
+  var txt = document.getElementById("textbox");
+  textbox.value = "";
 }
