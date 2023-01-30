@@ -187,7 +187,7 @@ async function readModbusRegister() {
     //Décode la trame de réponse et affiche le résultat
     if(RXBuf.length >= 4) {
         var textbox = document.getElementById("textbox");
-        textbox.value = RXBuf[3]*256 + RXBuf[4];
+        textbox.value = RXBuf[4]*256 + RXBuf[5];
     }
 
   }
