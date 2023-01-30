@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Web Modbus</title>
+  <meta charset="UTF-8">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script src="modbus.js"></script>
+</head>
+
+<body>
+  <div class="login-box">
+    <h2>NS <img src="img/logo_modbus.png" style="vertical-align: -16px;" width=160px> Reader</h2>
+    
+    <fieldset>
+      <legend>Serial Port</legend>
+      <div class="myButton"><a id="connectButton" onclick="Connect()">Connect</a></div>
+    </fieldset><br>
+    <form>
+      <fieldset>
+        <legend>Modbus</legend>
+        <div id="LesControles">
+          <div>
+            <input type="radio" id="input-register" name="register-type" value="input-register">
+            <label for="input-register">Input Register</label>
+          </div>
+          <div>
+            <input type="radio" id="holding-register" name="register-type" value="holding-register" checked>
+            <label for="holding-register">Holding Register</label>
+          </div>
+          <div>
+            <input type="radio" id="discrete-input" name="register-type" value="discrete-input">
+            <label for="discrete-input">Discrete Input</label>
+          </div>
+          <div>
+            <input type="radio" id="coil" name="register-type" value="coil">
+            <label for="coil">Coil</label>
+          </div>
+          <div style="margin-top:10px">
+            <label for="DevAddress">Device Address </label>
+            <input type="number" id="DevAddress" style="text-align: center;" min="1" max="127" value="1">
+          </div>
+
+          <div style="margin-top:10px">
+            <label for="RegAddress">Register Offset&nbsp; </label>
+            <input type="number" id="RegAddress" style="text-align: center;" min="0" max="255" value="1">
+          </div>
+          <div style="margin-top:10px;text-align:center;">
+            <div class="myButton"><a id="ReadR" onclick="readModbusRegister()">Read</a></div>
+            <div class="myButton"><a id="WriteR" onclick="writeModbusRegister()">Write</a></div>
+          </div>
+          <div style="margin-top:10px;">
+            <input type="text" id="textbox" name="textbox">
+          </div>
+        </div>
+  </div>
+  </fieldset>
+  </form>
+  </div>
+  <!--div id="statusbar">Texte de la barre d'état</div-->
+</body>
+
+</html>

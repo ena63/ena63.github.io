@@ -1,0 +1,88 @@
+html {
+    height: 100%;
+  }
+
+  body {
+    margin:0;
+    padding:0;
+    font-family: Roboto,sans-serif;
+    color: #fff;
+    background: linear-gradient(#2b3952, #3b628f);
+  }
+
+  .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+
+  .login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    font-style: italic;
+    color: #fff;
+    text-align: center;
+  }
+
+  input[type="number"] {
+    width:50px;
+ }
+
+  .myButton {
+	box-shadow:inset 0px 0px 15px 3px #23395e;
+	background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	background-color:#2e466e;
+	border-radius:17px;
+	border:1px solid #1f2f47;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+	background-color:#415989;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+#statusbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background-color: rgb(43, 39, 39);
+    text-align: left;
+    font-size: 14px;
+  }
+
+#LabelRegAddress{
+    width: 300px;
+}
+
+#textbox{
+    width:97%;
+}
+
+fieldset {
+    border-radius: 10px; /* valeur pour un angle arrondi de 10 pixels */
+ }
+
+ input[type="text"], input[type="number"] {
+    border-radius: 10px;
+    font-size: 18px;
+  }
