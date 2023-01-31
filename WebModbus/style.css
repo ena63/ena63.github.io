@@ -1,3 +1,9 @@
+/* 
+https://codepen.io/soufiane-khalfaoui-hassani/pen/LYpPWda
+https://freefrontend.com/css-forms/
+ */
+
+ 
 html {
     height: 100%;
   }
@@ -75,7 +81,7 @@ html {
 }
 
 #textbox{
-    width:97%;
+    width:95%;
 }
 
 fieldset {
@@ -85,4 +91,5 @@ fieldset {
  input[type="text"], input[type="number"] {
     border-radius: 10px;
     font-size: 18px;
+    padding-left: 10px;
   }

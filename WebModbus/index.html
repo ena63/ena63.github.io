@@ -38,12 +38,12 @@
           </div>
           <div style="margin-top:10px">
             <label for="DevAddress">Device Address </label>
-            <input type="number" id="DevAddress" style="text-align: center;" min="1" max="127" value="1">
+            <input type="number" id="DevAddress" style="text-align: center;" min="1" max="127" value="1" onchange="modif()">
           </div>
 
           <div style="margin-top:10px">
             <label for="RegAddress">Register Offset&nbsp; </label>
-            <input type="number" id="RegAddress" style="text-align: center;" min="0" max="255" value="1">
+            <input type="number" id="RegAddress" style="text-align: center;" min="0" max="255" value="1" onchange="modif()">
           </div>
           <div style="margin-top:10px;text-align:center;">
             <div class="myButton"><a id="ReadR" onclick="readModbusRegister()">Read</a></div>
