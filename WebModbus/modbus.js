@@ -1,3 +1,10 @@
+/**
+ * @file  modbus.js
+ * @brief Lecture et écriture Modbus via API web serial
+ * @author Noe Serres
+ * @date   27 janvier 2023
+ */
+
 
 const options = { baudRate: 115200 };
 var port = null;
